@@ -1,0 +1,52 @@
+{
+  "name": "npm-upload",
+  "version": "0.1.0",
+  "description": "Starter Reason Project",
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "buildDev": "pesy build",
+    "release": {
+      "rewritePrefix": true,
+      "bin": [
+        "NpmUploadApp"
+      ]
+    }
+  },
+  "pesy": {
+    "azure-project": "esy-dev/esy",
+    "template": "0.1.0-alpha.18",
+    "github": "esy/pesy-reason-template"
+  },
+  "buildDirs": {
+    "library": {},
+    "bin": {
+      "imports": [
+        "Library = require('npm-upload/library')"
+      ],
+      "bin": {
+        "NpmUploadApp": "NpmUploadApp.re"
+      }
+    }
+  },
+  "scripts": {
+    "start": "esy x NpmUploadApp"
+  },
+  "dependencies": {
+    "@opam/dune": "*",
+    "@opam/reason": "*",
+    "@pesy/esy-pesy": "esy/pesy"
+  },
+  "devDependencies": {
+    "ocaml": "4.14.0",
+    "@opam/ocaml-lsp-server": "*"
+  },
+  "resolutions": {
+    "@opam/dune": "opam:3.4.1",
+    "@opam/dune-configurator": "opam:3.4.1",
+    "@opam/dune-rpc": "opam:3.4.1",
+    "@opam/dune-build-info": "opam:3.4.1",
+    "@opam/xdg": "opam:3.4.1",
+    "@opam/chrome-trace": "opam:3.3.1",
+    "@opam/pastel": "reasonml/reason-native:pastel.opam#a0ddab6ab25237961e32d8732b0a222ec2372d4a"
+  }
+}
